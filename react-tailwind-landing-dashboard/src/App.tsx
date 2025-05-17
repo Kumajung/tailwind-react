@@ -1,7 +1,8 @@
+// rfc
+import { AppRouter } from "@/routes"
+
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline animate-bounce">
-      Hello world!
-    </h1>
+    <AppRouter />
   )
 }
