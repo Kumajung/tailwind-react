@@ -8,7 +8,7 @@ export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: "/src" }],
   },
-  base: '/react-tailwind',
+  base: '/react-tailwind/',
   build: {
     chunkSizeWarningLimit: 1000, // Size in kB
     rollupOptions: {

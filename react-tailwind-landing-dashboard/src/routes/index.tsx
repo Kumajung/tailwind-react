@@ -25,97 +25,37 @@ const router = createBrowserRouter(
   [
     {
       path: "/",
-      // Main Layout
       element: <MainLayout />,
       children: [
-        {
-          index: true,
-          element: <Home />,
-        },
-        {
-          path: "/pricing",
-          element: <Pricing />,
-        },
-        {
-          path: "/company",
-          element: <Company />,
-        },
-        {
-          path: "/blog",
-          element: <Blog />,
-        },
-        {
-          path: "/terms",
-          element: <Terms />,
-        },
-        {
-          path: "/privacy",
-          element: <Policy />,
-        },
-        {
-          path: "/legal",
-          element: <Legal />,
-        },
+        { index: true, element: <Home /> },
+        { path: "pricing", element: <Pricing /> },
+        { path: "company", element: <Company /> },
+        { path: "blog", element: <Blog /> },
+        { path: "terms", element: <Terms /> },
+        { path: "privacy", element: <Policy /> },
+        { path: "legal", element: <Legal /> },
       ],
     },
+    { path: "/login", element: <Login /> },
+    { path: "/register", element: <Register /> },
+    { path: "/forgotpassword", element: <Forgotpassword /> },
     {
-      // Without Layout
-      path: "/login",
-      element: <Login />,
-    },
-    {
-      // Without Layout
-      path: "/register",
-      element: <Register />,
-    },
-    {
-      // Without Layout
-      path: "/forgotpassword",
-      element: <Forgotpassword />,
-    },
-    {
-      // Dashboard Layout
       path: "/dashboard",
-      // Main Layout
       element: <DashboardLayout />,
       children: [
-        {
-          index: true,
-          element: <Dashboard />,
-        },
-        {
-          path: "/dashboard/team",
-          element: <Team />,
-        },
-        {
-          path: "/dashboard/projects",
-          element: <Projects />,
-        },
-        {
-          path: "/dashboard/calendar",
-          element: <Calendar />,
-        },
-        {
-          path: "/dashboard/documents",
-          element: <Documents />,
-        },
-        {
-          path: "/dashboard/reports",
-          element: <Reports />,
-        },
-        {
-          path: "/dashboard/settings",
-          element: <Settings />,
-        },
-        {
-          path: "/dashboard/profile",
-          element: <Profile />,
-        },
+        { index: true, element: <Dashboard /> },
+        { path: "team", element: <Team /> },
+        { path: "projects", element: <Projects /> },
+        { path: "calendar", element: <Calendar /> },
+        { path: "documents", element: <Documents /> },
+        { path: "reports", element: <Reports /> },
+        { path: "settings", element: <Settings /> },
+        { path: "profile", element: <Profile /> },
       ],
     },
   ],
   {
-    basename: "/react-tailwind", // 👈 ตั้ง basename ที่นี่
+    basename: "/react-tailwind", // ✅ ใช้ในกรณี deploy ใน subfolder
   }
 );
 
