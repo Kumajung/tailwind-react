@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router'
 import DarkSwitch from '@/components/shared/main/DarkSwitch'
+import { ACCESS_URL } from '@/utils/Constant'
 
 // กำหนด interface สำหรับ SVG props
 interface IconProps extends React.SVGProps<SVGSVGElement> {
@@ -65,7 +66,7 @@ export default function TopBar() {
             >
               <img
                 className="w-8 h-8 rounded-full"
-                src="/images/avatar.avif"
+                src={`${ACCESS_URL}/images/avatar.avif`}
                 alt=""
               />
               <span className="text-sm font-medium text-gray-700 dark:text-gray-300">

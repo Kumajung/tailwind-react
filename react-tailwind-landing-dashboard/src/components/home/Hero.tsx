@@ -1,57 +1,58 @@
-import { Container } from "@/components/shared/main/Container"
-import { useState, useEffect } from "react"
+import { Container } from "@/components/shared/main/Container";
+// import { ACCESS_URL } from "@/utils/Constant";
+import { useState, useEffect } from "react";
 
 const slides = [
   {
     id: 1,
     image: "/images/hero.webp",
-    alt: "Hero Illustration 1"
+    alt: "Hero Illustration 1",
   },
   {
     id: 2,
     image: "/images/hero5.webp",
-    alt: "Hero Illustration 2"
+    alt: "Hero Illustration 2",
   },
   {
     id: 3,
     image: "/images/hero4.webp",
-    alt: "Hero Illustration 3"
-  }
-]
+    alt: "Hero Illustration 3",
+  },
+];
 
 export default function Hero() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Preload images
   useEffect(() => {
     const preloadImages = () => {
       const imagePromises = slides.map((slide) => {
         return new Promise((resolve, reject) => {
-          const img = new Image()
-          img.src = slide.image
-          img.onload = resolve
-          img.onerror = reject
-        })
-      })
+          const img = new Image();
+          img.src = slide.image;
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+      });
 
       Promise.all(imagePromises)
         .then(() => setIsLoaded(true))
-        .catch(console.error)
-    }
+        .catch(console.error);
+    };
 
-    preloadImages()
-  }, [])
+    preloadImages();
+  }, []);
 
   // Auto slide
   useEffect(() => {
-    if (!isLoaded) return // รอให้โหลดภาพเสร็จก่อน
+    if (!isLoaded) return; // รอให้โหลดภาพเสร็จก่อน
 
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [isLoaded])
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [isLoaded]);
 
   return (
     <>
@@ -66,7 +67,9 @@ export default function Hero() {
               {/* WindReact is a modern web design & marketing website
               template for startups and indie projects. Its built with
               React 19 & Tailwind CSS 4.0 and its free to use. */}
-              WindReact เป็นเทมเพลตเว็บไซต์สำหรับการออกแบบและการตลาดที่ทันสมัย เหมาะสำหรับสตาร์ทอัพและโปรเจกต์อิสระ พัฒนาโดยใช้ React 19 และ Tailwind CSS 4.0 และสามารถใช้งานได้ฟรี
+              WindReact เป็นเทมเพลตเว็บไซต์สำหรับการออกแบบและการตลาดที่ทันสมัย
+              เหมาะสำหรับสตาร์ทอัพและโปรเจกต์อิสระ พัฒนาโดยใช้ React 19 และ
+              Tailwind CSS 4.0 และสามารถใช้งานได้ฟรี
             </div>
 
             <div className="flex flex-col items-center space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
@@ -74,12 +77,11 @@ export default function Hero() {
                 href="#"
                 className="w-full sm:w-auto px-6 py-3 text-lg font-medium text-center text-white bg-indigo-600 hover:bg-indigo-700 rounded-md"
               >
-                {/* Get Started Now */} 
+                {/* Get Started Now */}
                 เริ่มใช้งานทันที
               </a>
               <a
                 href="#"
-
                 className="flex items-center space-x-2 text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
               >
                 <svg
@@ -99,8 +101,6 @@ export default function Hero() {
               </a>
             </div>
           </div>
-
-
         </div>
 
         <div className="flex items-center justify-center w-full lg:w-1/2">
@@ -111,7 +111,7 @@ export default function Hero() {
               <div
                 key={slide.id}
                 className={`absolute inset-0 transition-opacity duration-1000 ease-in-out
-                  ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+                  ${index === currentSlide ? "opacity-100" : "opacity-0"}`}
               >
                 <img
                   src={slide.image}
@@ -131,9 +131,10 @@ export default function Hero() {
                   onClick={() => setCurrentSlide(index)}
                   aria-label={`Go to slide ${index + 1}`}
                   className={`w-3 h-3 p-2 rounded-full transition-colors duration-300 relative
-                    ${index === currentSlide 
-                      ? 'bg-indigo-600 dark:bg-indigo-400 scale-110' 
-                      : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
+                    ${
+                      index === currentSlide
+                        ? "bg-indigo-600 dark:bg-indigo-400 scale-110"
+                        : "bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500"
                     }`}
                 >
                   {/* เพิ่ม touch target ที่ใหญ่ขึ้น */}
@@ -150,44 +151,44 @@ export default function Hero() {
           <div className="text-xl text-center text-gray-700 dark:text-gray-300">
             {/* Trusted by <span cl assName="text-indigo-600 dark:text-indigo-400">2000+</span>{" "}
             customers worldwide */}
-            ได้รับความไว้วางใจจากลูกค้ากว่า <span className="text-indigo-600 dark:text-indigo-400">2000+</span>{" "}
+            ได้รับความไว้วางใจจากลูกค้ากว่า{" "}
+            <span className="text-indigo-600 dark:text-indigo-400">2000+</span>{" "}
             รายทั่วโลก
           </div>
 
-
           <div className="flex flex-wrap justify-center gap-5 mt-10 md:justify-around">
             <div className="pt-2">
-              <img 
-                src="/images/brands/amazon.svg" 
-                alt="Amazon logo" 
+              <img
+                src={'/images/brands/amazon.svg'}
+                alt="Amazon logo"
                 className="brightness-0 dark:invert opacity-30 hover:opacity-50 transition-opacity"
               />
             </div>
             <div>
-              <img 
-                src="/images/brands/verizon.svg" 
-                alt="Verizon logo" 
+              <img
+                src={'/images/brands/verizon.svg'}
+                alt="Verizon logo"
                 className="brightness-0 dark:invert opacity-30 hover:opacity-50 transition-opacity"
               />
             </div>
             <div>
-              <img 
-                src="/images/brands/microsoft.svg" 
-                alt="Microsoft logo" 
+              <img
+                src={`/images/brands/microsoft.svg`}
+                alt="Microsoft logo"
                 className="brightness-0 dark:invert opacity-30 hover:opacity-50 transition-opacity"
               />
             </div>
             <div className="pt-1">
-              <img 
-                src="/images/brands/netflix.svg" 
-                alt="Netflix logo" 
+              <img
+                src={`/images/brands/netflix.svg`}
+                alt="Netflix logo"
                 className="brightness-0 dark:invert opacity-30 hover:opacity-50 transition-opacity"
               />
             </div>
             <div className="pt-2">
-              <img 
-                src="/images/brands/sony.svg" 
-                alt="Sony logo" 
+              <img
+                src={'/images/brands/sony.svg'}
+                alt="Sony logo"
                 className="brightness-0 dark:invert opacity-30 hover:opacity-50 transition-opacity"
               />
             </div>
@@ -195,5 +196,5 @@ export default function Hero() {
         </div>
       </Container>
     </>
-  )
+  );
 }

@@ -1,0 +1,1 @@
+export const ACCESS_URL = import.meta.env.BASE_URL;

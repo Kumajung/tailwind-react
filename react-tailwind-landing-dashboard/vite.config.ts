@@ -8,7 +8,10 @@ export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: "/src" }],
   },
-  base: '/react-tailwind/',
+  server: {
+    allowedHosts: ['3884dd7e7af4.ngrok-free.app','inch-yesterday-expensive-death.trycloudflare.com'],
+  },
+  // base: '/',
   build: {
     chunkSizeWarningLimit: 1000, // Size in kB
     rollupOptions: {

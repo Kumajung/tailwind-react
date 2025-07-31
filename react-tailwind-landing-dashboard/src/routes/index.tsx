@@ -54,9 +54,9 @@ const router = createBrowserRouter(
       ],
     },
   ],
-  {
-    basename: "/react-tailwind", // ✅ ใช้ในกรณี deploy ใน subfolder
-  }
+  // {
+  //   basename: "/", // ✅ ใช้ในกรณี deploy ใน subfolder
+  // }
 );
 
 export function AppRouter() {
